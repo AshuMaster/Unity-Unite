@@ -94,6 +94,17 @@
     <label for="{{ input_id }}">
       {{ value -}}
       {{ label_unavailable }}
+
+      {% assign current_variant = variant_prices | where: "title", value | first %}
+      {% if show_variant_prices and current_variant %}
+        <div class="custom-variant-prices">
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+            <span class="compare-price">{{ current_variant.compare_at_price | money_without_trailing_zeros }}</span>
+          {%- endif -%}
+          <span class="main-price"> {{ current_variant.price | money_without_trailing_zeros }}</span>
+        </div>
+      {% endif %}
+      
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
     <option

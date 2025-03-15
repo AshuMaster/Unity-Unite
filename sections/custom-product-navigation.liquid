@@ -1,10 +1,11 @@
 <style>
   .custom-product-nav {
     position: sticky;
-    top: 73px;
-    z-index: 1000;
+    top: 0;
+    z-index: 2;
     transition: all 0.3s ease-in-out;
     background-color: {{ section.settings.bg_color }};
+    overflow: hidden;
   }
 
   .custom-product-nav .horizontal-nav {
@@ -52,7 +53,7 @@
 
   .custom-product-nav .nav-list li a {
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0;
@@ -60,7 +61,6 @@
     text-transform: uppercase;
     white-space: nowrap;
     color: {{ section.settings.text_color }};
-    opacity: 0.5;
     transition: color 0.3s ease;
   }
 
@@ -101,37 +101,52 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-      const sections = document.querySelectorAll("section[class*='nav-']");
-      const navLinks = document.querySelectorAll(".horizontal-nav .nav-list li a");
-      let lastActiveSection = null;
-  
-      function updateActiveNav(section) {
-          const sectionClass = [...section.classList].find(cls => cls.startsWith("nav-"));
-          if (!sectionClass || section === lastActiveSection) return;
-          lastActiveSection = section;
-          navLinks.forEach(link => link.classList.toggle("active", link.dataset.section === sectionClass));
-      }
-  
-      const observer = new IntersectionObserver((entries) => {
-          let mostVisibleSection = entries
-              .filter(entry => entry.isIntersecting)
-              .map(entry => ({ section: entry.target, visibility: entry.target.getBoundingClientRect().height }))
-              .reduce((max, sec) => (sec.visibility > (max?.visibility || 0) ? sec : max), null);
-  
-          if (mostVisibleSection) updateActiveNav(mostVisibleSection.section);
-      }, { threshold: 0.5 });
-  
-      sections.forEach(section => observer.observe(section));
-  
-      requestAnimationFrame(() => {
-          let initialSection = [...sections].reduce((max, section) => {
-              const rect = section.getBoundingClientRect();
-              const visibility = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-              return visibility > (max?.visibility || 0) ? { section, visibility } : max;
-          }, null);
-  
-          if (initialSection) updateActiveNav(initialSection.section);
+    const sections = document.querySelectorAll("section[class*='nav-']");
+    const navLinks = document.querySelectorAll(".horizontal-nav .nav-list li a");
+    let lastActiveSection = null;
+
+    function updateActiveNav(section) {
+      const sectionClass = [...section.classList].find(cls => cls.startsWith("nav-"));
+      if (!sectionClass || section === lastActiveSection) return;
+      lastActiveSection = section;
+      navLinks.forEach(link => link.classList.toggle("active", link.dataset.section === sectionClass));
+    }
+
+    function checkVisibleSections() {
+      let mostVisibleSection = null;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          if (!mostVisibleSection || rect.top < mostVisibleSection.rect.top) {
+            mostVisibleSection = { section, rect };
+          }
+        }
       });
+
+      if (mostVisibleSection) {
+        updateActiveNav(mostVisibleSection.section);
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      checkVisibleSections();
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const targetSection = document.querySelector(`.${link.dataset.section}`);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+
+    checkVisibleSections();
   });
 </script>
 

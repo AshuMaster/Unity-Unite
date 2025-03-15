@@ -1,0 +1,298 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_product_navigation_FAAerm": {
+      "type": "custom-product-navigation",
+      "blocks": {
+        "nav_item_3qyHnY": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "OVERVIEW"
+          }
+        },
+        "nav_item_KTRHVW": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "ABOUT"
+          }
+        },
+        "nav_item_LQ8HFM": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "USAGE"
+          }
+        },
+        "nav_item_nCN7x6": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "INGREDIENTS"
+          }
+        },
+        "nav_item_FrtEgr": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "FAQS"
+          }
+        },
+        "nav_item_VBcJFa": {
+          "type": "nav_item",
+          "settings": {
+            "nav_label": "REVIEWS"
+          }
+        }
+      },
+      "block_order": [
+        "nav_item_3qyHnY",
+        "nav_item_KTRHVW",
+        "nav_item_LQ8HFM",
+        "nav_item_nCN7x6",
+        "nav_item_FrtEgr",
+        "nav_item_VBcJFa"
+      ],
+      "settings": {
+        "bg_color": "#fffbe6",
+        "text_color": "#8e8e82",
+        "text_hover_color": "#1d211e",
+        "text_active_color": "#1d211e",
+        "padding_top": 14,
+        "padding_bottom": 10,
+        "nav_gap": 20
+      }
+    },
+    "main": {
+      "type": "custom-main-product-v1",
+      "blocks": {
+        "product_rating_LrEHxh": {
+          "type": "product-rating",
+          "settings": {
+            "star_rating": 4.9,
+            "star_color": "#f1c40f",
+            "rating_text": "Rated <b>4.9/5</b> by <span><b>100+</b> Happy Customers</span>"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "subscriptions_app_block_J6A8Ka": {
+          "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
+          "settings": {
+            "color_text_title": "#1d211e",
+            "color_text_body": "#1d211e",
+            "dividers_color": "#8f8d8d",
+            "bacgkround_color": "#ffffff",
+            "border_thickness": 0,
+            "border_radius": 0,
+            "supporting_text_title": "FREQUENCY",
+            "subscription_policy_url": "shopify://products/whipped-tallow-honey-balm",
+            "product": "{{product}}"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_delivery_date_BGbyja": {
+          "type": "custom_delivery_date",
+          "settings": {
+            "delivery_text": "Order today and get it by",
+            "delivery_days": 2
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_product_info_a7WtET": {
+          "type": "custom_product_info",
+          "settings": {
+            "icon_image_left": "shopify://shop_images/ri_truck-line.svg",
+            "text_left": "<p><strong>Free</strong> Shipping Today</p>",
+            "icon_image_right": "shopify://shop_images/icon-park-outline_return.svg",
+            "text_right": "<p><strong>30-Day Easy</strong> Returns</p>",
+            "payment_image": "shopify://shop_images/Payment_Method.svg"
+          }
+        },
+        "custom_videos_8L8YNW": {
+          "type": "custom_videos",
+          "settings": {
+            "vid_image_1": "shopify://shop_images/sun-setting-over-ocean.jpg",
+            "video_1": "shopify://files/videos/8195676-sd_226_426_30fps.mp4",
+            "video_title_1": "5 Main Benefits",
+            "video_2": "shopify://files/videos/8195676-sd_226_426_30fps.mp4",
+            "video_title_2": "How To Use",
+            "video_3": "shopify://files/videos/8195676-sd_226_426_30fps.mp4",
+            "video_title_3": "Ingredients"
+          }
+        },
+        "collapsible_tab_YMDUJB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Description",
+            "uploaded-acc-image": "shopify://shop_images/material-symbols_description.svg",
+            "icon": "clipboard",
+            "content": "<p><strong>Lorem Ipsum </strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_gfRBXM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping Information",
+            "uploaded-acc-image": "shopify://shop_images/shippingbox-fill.svg",
+            "icon": "clipboard",
+            "content": "<p><strong>Lorem Ipsum </strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_9reCyn": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "uploaded-acc-image": "shopify://shop_images/ep_question-filled.svg",
+            "icon": "clipboard",
+            "content": "<p><strong>Lorem Ipsum </strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "page": ""
+          }
+        },
+        "custom_liquid_WgDpKW": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n  const prices = document.querySelectorAll('.price__sale .price-item');\n  \n  prices.forEach(function(priceElement) {\n    let priceText = priceElement.innerText.trim();\n    priceText = priceText.replace(/[A-Za-z]+$/, '').trim();\n    priceElement.innerText = priceText;\n  });\n});\n</script>"
+          }
+        }
+      },
+      "block_order": [
+        "product_rating_LrEHxh",
+        "title",
+        "price",
+        "description",
+        "subscriptions_app_block_J6A8Ka",
+        "variant_picker",
+        "quantity_selector",
+        "custom_delivery_date_BGbyja",
+        "buy_buttons",
+        "custom_product_info_a7WtET",
+        "custom_videos_8L8YNW",
+        "collapsible_tab_YMDUJB",
+        "collapsible_tab_gfRBXM",
+        "collapsible_tab_9reCyn",
+        "custom_liquid_WgDpKW"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "show_variant_prices": true,
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "multirow_ketM3E": {
+      "type": "multirow",
+      "blocks": {
+        "row_9bhaJ6": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/sun-setting-over-ocean.jpg",
+            "caption": "",
+            "heading": "Testing Scrolling Tracker",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_W9in9b": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/sun-setting-over-ocean.jpg",
+            "caption": "",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_9bhaJ6",
+        "row_W9in9b"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "custom_product_navigation_FAAerm",
+    "main",
+    "related-products",
+    "multirow_ketM3E"
+  ]
+}

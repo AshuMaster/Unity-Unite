@@ -123,14 +123,23 @@
         </span>
       </small>
     </div>
-    {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
-      </span>
 
+    {%- if show_badges -%}
+      {%- assign savings = product.compare_at_price | minus: target.price | times: 100 | divided_by: product.compare_at_price -%}
+      {%- if product.compare_at_price > target.price -%}
+        <span class="badge price__badge-save color-{{ settings.sale_badge_color_scheme }}">
+          SAVE {{ savings | round }}%
+        </span>
+      {%- else -%}
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {{ 'products.product.on_sale' | t }}
+        </span>
+      {%- endif -%}
+    
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
         {{ 'products.product.sold_out' | t }}
       </span>
     {%- endif -%}
+    
   </div>
 {% endunless %}

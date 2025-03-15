@@ -9,67 +9,16 @@
  */
 {
   "sections": {
-    "custom_product_navigation_FAAerm": {
-      "type": "custom-product-navigation",
-      "blocks": {
-        "nav_item_3qyHnY": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "OVERVIEW"
-          }
-        },
-        "nav_item_KTRHVW": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "ABOUT"
-          }
-        },
-        "nav_item_LQ8HFM": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "USAGE"
-          }
-        },
-        "nav_item_nCN7x6": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "INGREDIENTS"
-          }
-        },
-        "nav_item_FrtEgr": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "FAQS"
-          }
-        },
-        "nav_item_VBcJFa": {
-          "type": "nav_item",
-          "settings": {
-            "nav_label": "REVIEWS"
-          }
-        }
-      },
-      "block_order": [
-        "nav_item_3qyHnY",
-        "nav_item_KTRHVW",
-        "nav_item_LQ8HFM",
-        "nav_item_nCN7x6",
-        "nav_item_FrtEgr",
-        "nav_item_VBcJFa"
-      ],
-      "settings": {
-        "bg_color": "#fffbe6",
-        "text_color": "#1d211e",
-        "text_hover_color": "#1d211e",
-        "text_active_color": "#1d211e",
-        "padding_top": 14,
-        "padding_bottom": 10,
-        "nav_gap": 20
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -87,78 +36,54 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
           }
         },
         "description": {
           "type": "description",
           "settings": {}
         },
-        "collapsible_tab_YMDUJB": {
-          "type": "collapsible_tab",
+        "share": {
+          "type": "share",
           "settings": {
-            "heading": "Product Description",
-            "icon": "clipboard",
-            "content": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_gfRBXM": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping Information",
-            "icon": "clipboard",
-            "content": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_9reCyn": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Frequently Asked Questions",
-            "icon": "clipboard",
-            "content": "<p><strong>Lorem Ipsum</strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
-            "page": ""
+            "share_label": "Share"
           }
         }
       },
       "block_order": [
+        "vendor",
         "title",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible_tab_YMDUJB",
-        "collapsible_tab_gfRBXM",
-        "collapsible_tab_9reCyn"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 40,
-        "padding_bottom": 60
+        "padding_top": 36,
+        "padding_bottom": 12
       }
     },
     "related-products": {
       "type": "related-products",
-      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -174,110 +99,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "multirow_ketM3E": {
-      "type": "multirow",
-      "blocks": {
-        "row_9bhaJ6": {
-          "type": "row",
-          "settings": {
-            "caption": "",
-            "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "row_W9in9b": {
-          "type": "row",
-          "settings": {
-            "caption": "",
-            "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_9bhaJ6",
-        "row_W9in9b"
-      ],
-      "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "row_color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 80
-      }
-    },
-    "multicolumn_4rgF6P": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_CFGw6L": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_HCMcCD": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_P3qLiF": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_CFGw6L",
-        "column_HCMcCD",
-        "column_P3qLiF"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 100
-      }
     }
   },
   "order": [
-    "custom_product_navigation_FAAerm",
     "main",
-    "related-products",
-    "multirow_ketM3E",
-    "multicolumn_4rgF6P"
+    "related-products"
   ]
 }

@@ -12,7 +12,7 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify://shop_images/teaspoons-full-of-spices.jpg",
+        "image": "shopify://shop_images/sun-setting-over-ocean.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
