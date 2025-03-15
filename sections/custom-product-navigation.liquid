@@ -1,0 +1,244 @@
+<style>
+  .custom-product-nav {
+    position: sticky;
+    top: 73px;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  .custom-product-nav .horizontal-nav {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .custom-product-nav .horizontal-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-product-nav .horizontal-nav:hover::-webkit-scrollbar {
+    display: block;
+    height: 5px;
+  }
+
+  .custom-product-nav .horizontal-nav:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+
+  .custom-product-nav .horizontal-nav:hover::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-product-nav .nav-list {
+    display: flex;
+    gap: {{ section.settings.nav_gap }}px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .custom-product-nav .nav-list li {
+    list-style: none;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .custom-product-nav .nav-list li:has(a.active) {
+    border-bottom: 2px solid {{ section.settings.text_active_color }};
+  }
+
+  .custom-product-nav .nav-list li a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: {{ section.settings.text_color }};
+    opacity: 0.5;
+    transition: color 0.3s ease;
+  }
+
+  .custom-product-nav .nav-list li a:hover {
+    color: {{ section.settings.text_hover_color }};
+  }
+
+  .custom-product-nav .nav-list li a.active {
+    color: {{ section.settings.text_active_color }};
+    font-weight: 900;
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 768px){
+    .custom-product-nav .nav-list {
+      display: flex;
+      justify-content: center;
+      gap: {{ section.settings.nav_gap }}px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+</style>
+
+<div class="page-width">
+  <div class="horizontal-nav">
+    <ul class="nav-list">
+      {% for block in section.blocks %}
+        <li>
+          <a href="#" data-section="nav-{{ block.settings.nav_label | downcase | replace: ' ', '-' }}">
+            {{ block.settings.nav_label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll("section[class*='nav-']");
+      const navLinks = document.querySelectorAll(".horizontal-nav .nav-list li a");
+      let lastActiveSection = null;
+  
+      function updateActiveNav(section) {
+          const sectionClass = [...section.classList].find(cls => cls.startsWith("nav-"));
+          if (!sectionClass || section === lastActiveSection) return;
+          lastActiveSection = section;
+          navLinks.forEach(link => link.classList.toggle("active", link.dataset.section === sectionClass));
+      }
+  
+      const observer = new IntersectionObserver((entries) => {
+          let mostVisibleSection = entries
+              .filter(entry => entry.isIntersecting)
+              .map(entry => ({ section: entry.target, visibility: entry.target.getBoundingClientRect().height }))
+              .reduce((max, sec) => (sec.visibility > (max?.visibility || 0) ? sec : max), null);
+  
+          if (mostVisibleSection) updateActiveNav(mostVisibleSection.section);
+      }, { threshold: 0.5 });
+  
+      sections.forEach(section => observer.observe(section));
+  
+      requestAnimationFrame(() => {
+          let initialSection = [...sections].reduce((max, section) => {
+              const rect = section.getBoundingClientRect();
+              const visibility = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+              return visibility > (max?.visibility || 0) ? { section, visibility } : max;
+          }, null);
+  
+          if (initialSection) updateActiveNav(initialSection.section);
+      });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector(".custom-product-nav");
+
+    if (nav) {
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Product Nav",
+  "class": "custom-product-nav",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFBE6"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#1D211E"
+    },
+    {
+      "type": "color",
+      "id": "text_hover_color",
+      "label": "Text Hover Color",
+      "default": "#1D211E"
+    },
+    {
+      "type": "color",
+      "id": "text_active_color",
+      "label": "Text Active Color",
+      "default": "#1D211E"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "nav_gap",
+      "label": "Navigation Item Gap",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "nav_item",
+      "name": "Navigation Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav_label",
+          "label": "Navigation Label",
+          "default": "New Item"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Nav",
+      "blocks": [
+        { "type": "nav_item", "settings": { "nav_label": "OVERVIEW" } },
+        { "type": "nav_item", "settings": { "nav_label": "ABOUT" } },
+        { "type": "nav_item", "settings": { "nav_label": "USAGE" } },
+        { "type": "nav_item", "settings": { "nav_label": "INGREDIENTS" } },
+        { "type": "nav_item", "settings": { "nav_label": "FAQS" } },
+        { "type": "nav_item", "settings": { "nav_label": "REVIEWS" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
